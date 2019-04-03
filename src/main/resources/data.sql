@@ -1,0 +1,7 @@
+INSERT INTO customer (customer_name, registration_Date, sales, customer_type) VALUES
+('ALMAR', '2000-01-01',60000, 'RETAIL'),
+('DUO', '2010-11-01',120000, 'RETAIL'),
+('MARO', '1999-06-01',1150000, 'NETWORK'),
+('GRZD', '2017-01-01',150000, 'INDIVIDUAL'),
+('LIDL', '2015-02-01',26060000, 'DISCOUNT'),
+('MAKRO', '2012-09-01',650000, 'WHOLESALER');

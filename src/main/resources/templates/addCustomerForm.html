@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:o="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Nowy klient - Formularz </title>
+</head>
+<body>
+<h1>Nowy klient</h1>
+<form method="post" action="/addcustomer" th:object="${klient}">
+    <input type="text" th:filed="*{customerName}"/></br>
+    <input type="date" th:filed="*{registrationDate}"/></br>
+
+    <select th:filed="*{customerType}">
+        <option th:each="o: ${T(pl.ls.zad_25_work.CustomerType).values()}"
+                th:value="${o.name()}"
+                th:text="${o.name()}">
+
+        </option>
+
+    </select></br>
+
+    <input type="text" th:filed="*{sales}"></br>
+    <input type="submit" value="OK">
+
+</form>
+
+
+</body>
+</html>

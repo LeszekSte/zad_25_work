@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista Klientów</title>
+</head>
+<body>
+
+<ul>
+    <li th:each="klient: ${klienci} ">
+        <a th:href="|/cust/${klient.id}"  th:text="|${klient.id}   -   ${klient.customerName} - ${klient.customerType}  -  ${klient.sales}|">Klient</a>
+    </li>
+</ul>
+
+<br>
+
+<a href="/addcustomer">Dodaj nowego klienta</a>
+
+
+
+
+
+<!--<a th:href="/addCustomer" style="margin-left: 20px">Dodaj nowego klienta</a>-->
+</body>
+</html>
