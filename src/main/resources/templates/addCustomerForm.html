@@ -7,10 +7,10 @@
 <body>
 <h1>Nowy klient</h1>
 <form method="post" action="/addcustomer" th:object="${klient}">
-    <input type="text" th:filed="*{customerName}"/></br>
-    <input type="date" th:filed="*{registrationDate}"/></br>
+    <input type="text" th:field="*{customerName}"/></br>
+    <input type="date" th:field="*{registrationDate}"/></br>
 
-    <select th:filed="*{customerType}">
+    <select th:field="*{customerType}">
         <option th:each="o: ${T(pl.ls.zad_25_work.CustomerType).values()}"
                 th:value="${o.name()}"
                 th:text="${o.name()}">

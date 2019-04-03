@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.swing.text.html.Option;
+import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
 
@@ -49,13 +50,34 @@ public class CustomerController {
 
     @PostMapping("/addcustomer")
     public String addCustomer(Customer customer){
-
-        System.out.println(customer.toString());
         customerRepository.save(customer);
-
-
         return "redirect:/";
     }
+
+    @GetMapping("/deletecustomer")
+    public String deleteCustomer(Model model){
+        List<Customer> customerList = customerRepository.findAll();
+        model.addAttribute("klienci", customerList);
+    return "deleteCustomers";
+
+
+
+
+    }
+    @Transactional
+    @PostMapping("/delete/{id}")
+    public String deleteCustomer(@PathVariable Long id){
+        Optional<Customer> customerOptional = customerRepository.findById(id);
+
+        if (customerOptional.isPresent()){
+            Customer customer = customerOptional.get();
+            customerRepository.delete(customer);
+            return "redirect:/";
+        }else{
+            return "redirect:/";
+        }
+    }
+
 
 
 

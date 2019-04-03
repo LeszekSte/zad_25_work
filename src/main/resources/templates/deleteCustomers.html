@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Kasowanie klienta</title>
+</head>
+
+
+<body>
+<ul>
+    <li th:each="klient: ${klienci} ">
+        <a th:href="|/delete/${klient.id}|"  th:text="|${klient.id} ${klient.customerName} |">Klient</a>
+    </li>
+</ul>
+
+
+
+<!--<form method="post" action="/deletecustomer" th:object="${klienci}">-->
+
+<!--    <select th:field="*{customerName}">-->
+<!--        <option th:each="o: ${klienci}"-->
+<!--                th:name="${o.customerName}"-->
+<!--                th:value="${o.customerName}">-->
+
+<!--        </option>-->
+
+
+<!--    </select></br>-->
+
+<!--    <input type="submit" value="OK">-->
+
+<!--</form>-->
+
+<br>
+
+
+
+<!--<a th:href="/addCustomer" style="margin-left: 20px">Dodaj nowego klienta</a>-->
+</body>
+</html>
