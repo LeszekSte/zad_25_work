@@ -1,15 +1,53 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title th:text="|${klient.customerName}|">Klient</title>
-</head>
-<body>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
-<h1 th:text="|${klient.id}|">Wyszło</h1>
-<h1 th:text="|${klient.customerName}|">Wyszło</h1>
-<h1 th:text="|${klient.sales}|">Wyszło</h1>
-<h1 th:text="|${klient.customerType}|">Wyszło</h1>
-<h1 th:text="|${klient.registrationDate}|">Wyszło</h1>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width-device-width, intial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+        <link href="https://fonts.googleapis.com/css?family=Roboto:400,900&subset=latin-ext" rel="stylesheet">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href="styles.css">
+        <link rel="icon" href="favicon.ico">
+
+        <title th:text="|${klient.customerName}|">Lista Klientów</title>
+
+        <style type="text/css">
+
+        </style>
+    </head>
+<body>
+    <div id="wrapper">
+
+        <header>
+            <img src="PodwodneBoisko.jpg" alt="Boisko podwodne - header" />
+        </header>
+
+        <nav>
+            <a class="menu active" href="/"> Strona główna</a>
+            <a class="menu" href="/addcustomer"> Nowy Klient</a>
+            <a class="menu" href="/deletecustomer"> Kasuj Klienta</a>
+            <a class="menu" href="#"> Kontakt</a>
+        </nav>
+
+
+        <section>
+            <article>
+                <h1>Szczegóły klienta</h1>
+                <h2 th:text="|Nazwa klienta     -  ${klient.customerName}|">Wyszło</h2>
+                <h3 th:text="|Nr Klienta        -  ${klient.id}|">Wyszło</h3>
+
+                <h3 th:text="|Obrót            -  ${klient.sales} zł|">Wyszło</h3>
+                <h3 th:text="|typ klienta      -  ${klient.customerType}|">Wyszło</h3>
+                <h4 th:text="|Data rejestracji -  ${klient.registrationDate}|">Wyszło</h4>
+            </article>
+        </section>
+
+        <footer>
+            <p>Stopka </p>
+            <img src="http://www.lukasztokarski.pl/sets/fotografia-dzieci/stopy-stopki-raczki-i-paluszki-czyli-dzieciece-detale/fotografia_dziecieca_trojmiasto_(20).jpg" alt="Brak stpek"/>
+        </footer>
+
+    </div>
 </body>
 </html>

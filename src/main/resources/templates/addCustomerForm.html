@@ -1,30 +1,75 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:o="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
+
     <meta charset="UTF-8">
+    <meta name="viewport" content="width-device-width, intial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,900&subset=latin-ext" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="favicon.ico">
     <title>Nowy klient - Formularz </title>
 </head>
 <body>
-<h1>Nowy klient</h1>
-<form method="post" action="/addcustomer" th:object="${klient}">
-    <input type="text" th:field="*{customerName}"/></br>
-    <input type="date" th:field="*{registrationDate}"/></br>
 
-    <select th:field="*{customerType}">
-        <option th:each="o: ${T(pl.ls.zad_25_work.CustomerType).values()}"
-                th:value="${o.name()}"
-                th:text="${o.name()}">
-
-        </option>
+<div id="wrapper">
 
 
-    </select></br>
+    <header>
+        <img src="PodwodneBoisko.jpg" alt="Boisko podwodne - header" />
+    </header>
 
-    <input type="text" th:field="*{sales}"></br>
-    <input type="submit" value="OK">
+        <nav>
+            <a class="menu active" href="/"> Strona główna</a>
+            <a class="menu" href="/addcustomer"> Nowy Klient</a>
+            <a class="menu" href="/deletecustomer"> Kasuj Klienta</a>
+            <a class="menu" href="#">Nie działa</a>
+        </nav>
 
-</form>
+    <section>
+        <article>
+            <h1>Nowy klient</h1>
+
+            <form method="post" action="/addcustomer" th:object="${klient}" style="width: 300px">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Podaj nazwę klienta" th:field="*{customerName}"/></br>
+                    <label for="disabledSelect">Data rejestracji</label>
+                    <input type="date" class="form-control" placeholder="rrrr-mm-dd" th:field="*{registrationDate}"/></br>
+                </div>
+
+                <div class="form-group">
+                    <label for="disabledSelect">Podaj rodzaj klienta</label></br>
+                    <select id="disabledSelect" class="form-control" th:field="*{customerType}">
+                        <option th:each="o: ${T(pl.ls.zad_25_work.CustomerType).values()}"
+                                th:value="${o.name()}"
+                                th:text="${o.name()}">
+                        </option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="disabledSelect">Podaj obrót z klientem</label>
+                    <input type="text" class="form-control" th:field="*{sales}"></br>
+                    <button type="submit" class="btn btn-primary">Zapisz</button>
+                </div>
+            </form>
 
 
+
+
+
+
+        </article>
+
+    </section>
+    <footer>
+        <p>Stopka </p>
+        <!--   <img src="http://www.lukasztokarski.pl/sets/fotografia-dzieci/stopy-stopki-raczki-i-paluszki-czyli-dzieciece-detale/fotografia_dziecieca_trojmiasto_(20).jpg" alt="Brak stpek">-->
+        <img src="stopki płaskie.jpg" alt="brak stopek"/>
+
+    </footer>
+
+</div>
 </body>
 </html>

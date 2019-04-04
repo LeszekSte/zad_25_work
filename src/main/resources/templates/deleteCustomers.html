@@ -1,40 +1,95 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
+
     <meta charset="UTF-8">
+    <meta name="viewport" content="width-device-width, intial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,900&subset=latin-ext" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="favicon.ico">
+
+
     <title>Kasowanie klienta</title>
-</head>
+    <style type="text/css">
+        .container {
+            display: inline-flex; /* or inline-flex */
+            flex-direction: row;
+            align-items: center;
+            padding: 10px;
+        }
+
+        .insidecontener {
+            padding: 5px;
+            background: #4a3cff;
+            padding: 1%;
+            color: ghostwhite;
+            margin-top: 3px;
+            text-align: center;
+            width: 70px;
+            margin-left: 2px;
+        }
+        .ramka {
+            background: red;
+            width: 100%;
+            height: 60px;
+        }
+    </style>
 
 
 <body>
-<ul>
-    <li th:each="klient: ${klienci} ">
-        <a th:href="|/delete/${klient.id}|"  th:text="|${klient.id} ${klient.customerName} |">Klient</a>
-    </li>
-</ul>
+<div id="wrapper">
+
+    <header>
+        <img src="PodwodneBoisko.jpg" alt="Boisko podwodne - header" />
+    </header>
+
+    <nav>
+        <a class="menu active" href="/"> Strona główna</a>
+        <a class="menu" href="/addcustomer"> Nowy Klient</a>
+        <a class="menu" href="/deletecustomer"> Kasuj Klienta</a>
+        <a class="menu" href="#"> Kontakt</a>
+    </nav>
+
+    <section>
+        <article>
+            <h1>Kasowanie klienta</h1>
 
 
+            <div class="list-group"style="width: 400px">
+                <button type="button" class="list-group-item list-group-item-action active">Lista klientów</button>
+                <button type="button" class="list-group-item list-group-item-action active">Wybierz klienta do skasowania</button>
 
-<!--<form method="post" action="/deletecustomer" th:object="${klienci}">-->
+                    <ul  th:each="klient: ${klienci} " class="list-group-item list-group-item-action">
+                        <a th:href="|/delete/${klient.id}|"  th:text="|${klient.id}   ${klient.customerName} |">Klient</a>
+                    </ul>
+            </div>
+        </article>
 
-<!--    <select th:field="*{customerName}">-->
-<!--        <option th:each="o: ${klienci}"-->
-<!--                th:name="${o.customerName}"-->
-<!--                th:value="${o.customerName}">-->
+    </section>
 
-<!--        </option>-->
+    <!--<a th:href="/addCustomer" style="margin-left: 20px">Dodaj nowego klienta</a>-->
 
-
-<!--    </select></br>-->
-
-<!--    <input type="submit" value="OK">-->
-
-<!--</form>-->
-
-<br>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
 
 
+    <footer>
+        <p>Stopka </p>
+        <!--   <img src="http://www.lukasztokarski.pl/sets/fotografia-dzieci/stopy-stopki-raczki-i-paluszki-czyli-dzieciece-detale/fotografia_dziecieca_trojmiasto_(20).jpg" alt="Brak stpek">-->
+        <img src="stopki płaskie.jpg" alt="brak stopek"/>
 
-<!--<a th:href="/addCustomer" style="margin-left: 20px">Dodaj nowego klienta</a>-->
+    </footer>
+
+</div>
+
 </body>
 </html>
