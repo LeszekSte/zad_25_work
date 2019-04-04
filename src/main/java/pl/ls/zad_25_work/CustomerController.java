@@ -61,11 +61,9 @@ public class CustomerController {
     return "deleteCustomers";
 
 
-
-
     }
     @Transactional
-    @PostMapping("/delete/{id}")
+    @GetMapping("/delete/{id}")
     public String deleteCustomer(@PathVariable Long id){
         Optional<Customer> customerOptional = customerRepository.findById(id);
 
