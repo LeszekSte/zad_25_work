@@ -7,7 +7,7 @@
         <link rel="stylesheet" href="style.css">
         <link href="https://fonts.googleapis.com/css?family=Roboto:400,900&subset=latin-ext" rel="stylesheet">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" href="/styles.css">
         <link rel="icon" href="favicon.ico">
 
         <title th:text="|${klient.customerName}|">Lista Klientów</title>
@@ -36,12 +36,20 @@
                 <h1>Szczegóły klienta</h1>
                 <h2 th:text="|Nazwa klienta     -  ${klient.customerName}|">Wyszło</h2>
                 <h3 th:text="|Nr Klienta        -  ${klient.id}|">Wyszło</h3>
-
                 <h3 th:text="|Obrót            -  ${klient.sales} zł|">Wyszło</h3>
                 <h3 th:text="|typ klienta      -  ${klient.customerType}|">Wyszło</h3>
                 <h4 th:text="|Data rejestracji -  ${klient.registrationDate}|">Wyszło</h4>
             </article>
         </section>
+
+        <form action="/addcomment" method="post">
+
+            <div class="form-group">
+                <input type="hidden" th:value="${klient.id}" name="klientId"/>
+                <textarea  class="form-control" name="content"></textarea>
+                <input type="submit" class="btn btn-primary" value="Dodaj komentarz">
+            </div>
+        </form>
 
         <footer>
             <p>Stopka </p>
