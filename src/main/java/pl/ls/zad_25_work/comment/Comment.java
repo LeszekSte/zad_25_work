@@ -41,7 +41,9 @@ public class Comment {
         return addedTime;
     }
 
-    public void setAddetTime(LocalDateTime addedTime) {
+
+
+    public void setAddedTime(LocalDateTime addedTime) {
         this.addedTime = addedTime;
     }
 
@@ -52,4 +54,6 @@ public class Comment {
     public void setCustomer(Customer customer) {
         this.customer = customer;
     }
+
+
 }
